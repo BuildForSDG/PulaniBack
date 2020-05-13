@@ -38,15 +38,4 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
-  'santigarcor/laratrust' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laratrust\\LaratrustServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Laratrust' => 'Laratrust\\LaratrustFacade',
-    ),
-  ),
 );
