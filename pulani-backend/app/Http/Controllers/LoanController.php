@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Loan;
 
-class LoanRequestController extends Controller
+class LoanController extends Controller
 {
     public function index()
     {

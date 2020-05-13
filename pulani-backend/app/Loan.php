@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class LoanRequest extends Model
+class Loan extends Model
 {
     use SoftDeletes;
 
-    public $table = 'loan_requests';
+    public $table = 'loans';
 
     protected $fillable = [
         'user_id',

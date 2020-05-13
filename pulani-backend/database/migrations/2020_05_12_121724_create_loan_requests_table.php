@@ -8,7 +8,7 @@ class CreateLoanRequestsTable extends Migration
 {
     public function up()
     {
-        Schema::create('loan_requests', function (Blueprint $table) {
+        Schema::create('loans', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('name_of_business');
@@ -28,6 +28,6 @@ class CreateLoanRequestsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('loan_requests');
+        Schema::dropIfExists('loans');
     }
 }
