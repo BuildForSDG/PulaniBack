@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-//User routes
+//User API routes
 Route::get ('/users', [
     'as' => 'users.index',
      'uses' => 'Api\UsersController@index'
