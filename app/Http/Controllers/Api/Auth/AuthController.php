@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Api\Controller;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     /**
      * Create a new AuthController instance.

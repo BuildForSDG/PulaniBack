@@ -6,33 +6,38 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->enum('title', ['Mr', 'Mrs', 'Ms']);
-            $table->longText('other');
-            $table->enum("gender", ["Male", "Female"]);
-            $table->string('surname');
-            $table->string('firstname');
-            $table->string('othernames')->nullable();
-            $table->date('dob');
-            $table->string('telephone');
-            $table->string('number_of_dependents');
-            $table->string('passport')->nullable();
-            $table->string('voters_id');
-            $table->string('drivers_licence')->nullable();
-            $table->string('id_number');
-            $table->string('photo')->nullable();
+            $table->bigIncrements('id');
+            $table->string('fname');
+            $table->string('lname');
+            $table->string('phone');
+            $table->string('locality');
+            $table->string('address');
+            $table->string('city');
+            $table->string('profile_pic')->nullable();
+            $table->string('company')->nullable();
+            $table->string('about')->nullable();
+            $table->string('preferred_comm')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('users');
