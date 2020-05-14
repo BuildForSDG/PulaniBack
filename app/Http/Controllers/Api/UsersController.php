@@ -15,75 +15,7 @@ use App\Http\Requests;
 
 class UsersController extends Controller
 {
-     //Create new user via API
 
-     public function createuser(Request $request){
-          //Validate before inserting user records
-          $this->validate($request, [
-            'title'        => 'required|max:20',
-            'lastName' => 'required|max:20',
-            'firstName' => 'required|max:20',
-            'otherName' => 'required|max:20',
-            'dateOfBirth' => 'required',
-            'phone' => 'required|max:20',
-            'idType' => 'required',
-            'idAmount' => 'required',
-            'idNumber' => 'required|max:30',
-            'idDateOfIssue' => 'required',
-            'idExpiryDate' => 'required',
-            'businesName' => 'required',
-            'businessAddress' => 'required',
-            'yearsOfBusiness' => 'required',
-            'totalBusinessCapital' => 'required|int',
-            'areaOfResidence' => 'required',
-            'numberOfDependants' => 'required',
-            'nextOfKin' => 'required',
-            'password' => 'required|string|min:8|confirmed',
-            
-        ]);
-
-       $user = $request ->isMethod('put')? User :: findOrFail
-       ($request->$id) : new User;
-
-        $user -> title = $request->input ('title');
-        $user -> lastName = $request->input ('lastName');
-        $user -> firstName = $request->input ('firstName');
-        $user -> otherName = $request->input ('otherName');
-        $user -> dateOfBirth = $request->input ('dateOfBirth');
-       
-        $user -> phone = $request->input ('phone');
-        $user -> email = $request->input ('email');
-        $user -> idType = $request->input ('idType');
-        $user -> idNumber = $request->input ('idNumber');
-        $user -> idDateOfIssue = $request->input ('idDateOfIssue');
-        $user -> idExpiryDate = $request->input ('idExpiryDate');
-        $user -> businesName = $request->input ('businesName');
-        $user -> businessAddress = $request->input ('businessAddress');
-
-        $user -> yearsOfBusiness = $request->input ('yearsOfBusiness');
-        $user -> totalBusinessCapital = $request->input ('totalBusinessCapital');
-        $user -> areaOfResidence = $request->input ('areaOfResidence');
-        $user -> numberOfDependants = $request->input ('numberOfDependants');
-        $user -> nextOfKin = $request->input ('nextOfKin');
-        $user -> password = Hash::make($request->input ('password'));
-
-        $isEmailExists = User::where('email', $user['email'])->count();
-        $isPhoneValid = User::where('phone', $user['phone'])->count();
-        if($isEmailExists){
-            return response()->json(['error' => true, 'message'=> 'User already Registered']);
-        
-        } else if($isPhoneValid){
-            return response()->json(['error' => true, 'message'=> 'Phone already in use']); 
-        }   
-            else{
-                $user->save();
-                //$user->save();
-                //Very important. You should save before attaching a role
-                $role = Role :: select ('id')->where('name', 'user')->first();
-                $user->attachRole($role); // parameter can be a Role object, array, id or the role string name
-                return response()->json(['error' => false, 'message'=> 'User Succesfully Registered']);
-        }
-     }
 
     /**
      * Display users
@@ -118,6 +50,79 @@ class UsersController extends Controller
          
     }
 
+    //Create new user via API
+
+    public function createuser(Request $request){
+        //Validate before inserting user records
+        $this->validate($request, [
+
+          'title'        => 'required|max:20',
+          'lastName' => 'required|max:20',
+          'firstName' => 'required|max:20',
+          'otherName' => 'max:20',
+          'dateOfBirth' => 'required|string',
+          'gender' => 'required:max:20',
+          'phone' => 'required|max:20',
+          'email' => 'required|email|unique:users',
+          'idType' => 'required',
+          'idNumber' => 'required|max:30',
+          'idDateOfIssue' => 'required',
+          'idExpiryDate' => 'required',
+          'businesName' => 'required|string',
+          'businessAddress' => 'required|string',
+          'yearsOfBusiness' => 'required|int',
+          'totalBusinessCapital' => 'required|int',
+          'areaOfResidence' => 'required',
+          'numberOfDependants' => 'required|int',
+          'nextOfKin' => 'required|string',
+          'password' => 'required|string|min:8|confirmed',
+          
+      ]);
+
+     $user = $request ->isMethod('put')? User :: findOrFail
+     ($request->$id) : new User;
+
+      $user -> title = $request->input ('title');
+      $user -> lastName = $request->input ('lastName');
+      $user -> firstName = $request->input ('firstName');
+      $user -> otherName = $request->input ('otherName');
+      $user -> gender = $request->input ('gender');
+      $user -> dateOfBirth = $request->input ('dateOfBirth');
+     
+      $user -> phone = $request->input ('phone');
+      $user -> email = $request->input ('email');
+      $user -> idType = $request->input ('idType');
+      $user -> idNumber = $request->input ('idNumber');
+      $user -> idDateOfIssue = $request->input ('idDateOfIssue');
+      $user -> idExpiryDate = $request->input ('idExpiryDate');
+      $user -> businesName = $request->input ('businesName');
+      $user -> businessAddress = $request->input ('businessAddress');
+
+      $user -> photo = $request->input ('photo');
+      $user -> yearsOfBusiness = $request->input ('yearsOfBusiness');
+      $user -> totalBusinessCapital = $request->input ('totalBusinessCapital');
+      $user -> areaOfResidence = $request->input ('areaOfResidence');
+      $user -> numberOfDependants = $request->input ('numberOfDependants');
+      $user -> nextOfKin = $request->input ('nextOfKin');
+      $user -> password = Hash::make($request->input ('password'));
+
+      $isEmailExists = User::where('email', $user['email'])->count();
+      $isPhoneValid = User::where('phone', $user['phone'])->count();
+      if($isEmailExists){
+          return response()->json(['error' => true, 'message'=> 'User already Registered']);
+      
+      } else if($isPhoneValid){
+          return response()->json(['error' => true, 'message'=> 'Phone already in use']); 
+      }   
+          else{
+              $user->save();
+              //$user->save();
+              //Very important. You should save before attaching a role
+              $role = Role :: select ('id')->where('name', 'user')->first();
+              $user->attachRole($role); // parameter can be a Role object, array, id or the role string name
+              return response()->json(['error' => false, 'message'=> 'User Succesfully Registered']);
+      }
+   }
 
     /**
      * Show the form for editing the specified resource.

@@ -24,10 +24,11 @@ class User extends Authenticatable implements JWTSubject
 
     protected $fillable = [
         'title',
-        'lastName',
         'firstName',
+        'lastName',
         'otherName',
         'dateOfBirth',
+        'gender',
         'phone',
         'email',
         'idNumber',
@@ -40,7 +41,7 @@ class User extends Authenticatable implements JWTSubject
         'totalBusinessCapital',
         'areaOfResidence',
         'numberOfDependants',
-        'nextofkin',
+        'next0fKin',
         'password',
         // 'voters_id',
         // 'drivers_licence',
