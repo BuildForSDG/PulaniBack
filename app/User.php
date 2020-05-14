@@ -31,7 +31,7 @@ class User extends Authenticatable implements JWTSubject
         'phone',
         'email',
         'idNumber',
-        'idtype',
+        'idType',
         'idDateOfIssue',
         'idExpiryDate',
         'businesName'.

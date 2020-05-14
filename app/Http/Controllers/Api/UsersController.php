@@ -18,7 +18,29 @@ class UsersController extends Controller
      //Create new user via API
 
      public function createuser(Request $request){
-          //Validate before inserting
+          //Validate before inserting user records
+          $this->validate($request, [
+            'title'        => 'required|max:20',
+            'lastName' => 'required|max:20',
+            'firstName' => 'required|max:20',
+            'otherName' => 'required|max:20',
+            'dateOfBirth' => 'required',
+            'phone' => 'required|max:20',
+            'idType' => 'required',
+            'idAmount' => 'required',
+            'idNumber' => 'required|max:30',
+            'idDateOfIssue' => 'required',
+            'idExpiryDate' => 'required',
+            'businesName' => 'required',
+            'businessAddress' => 'required',
+            'yearsOfBusiness' => 'required',
+            'totalBusinessCapital' => 'required|int',
+            'areaOfResidence' => 'required',
+            'numberOfDependants' => 'required',
+            'nextOfKin' => 'required',
+            'password' => 'required|string|min:8|confirmed',
+            
+        ]);
 
        $user = $request ->isMethod('put')? User :: findOrFail
        ($request->$id) : new User;
@@ -31,7 +53,7 @@ class UsersController extends Controller
        
         $user -> phone = $request->input ('phone');
         $user -> email = $request->input ('email');
-        $user -> idtype = $request->input ('idtype');
+        $user -> idType = $request->input ('idType');
         $user -> idNumber = $request->input ('idNumber');
         $user -> idDateOfIssue = $request->input ('idDateOfIssue');
         $user -> idExpiryDate = $request->input ('idExpiryDate');
