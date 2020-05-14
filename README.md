@@ -6,8 +6,12 @@ A financial data management system for low-level entrepreneurs.
 
 Owing to minimal job creation, many people living in poverty have resorted to low-level entrepreneurship – selling g/nuts, riding a boda or even selling chapati.
 Others have even “professionalized” their skills – like tailors, mechanics, builders.
+
 That said, the key to lift them out of poverty therefore lies within access to finances. If this is unlocked, there can be business growth and a multiplier effect of job creation.
-Despite the numerous efforts to drive financial inclusion, these groups are still out in the “cold”. Why? There is an acute lack of financial information from these groups. Think about it. Any lender needs to know that you can pay back the loan, right?
+
+Despite the numerous efforts to drive financial inclusion, these groups are still out in the “cold”. 
+Why? There is an acute lack of financial information from these groups. Think about it. Any lender needs to know that you can pay back the loan, right?
+
 We believe that with availability of financial data, it would increase access to finance for these groups by 50%.
 
 
