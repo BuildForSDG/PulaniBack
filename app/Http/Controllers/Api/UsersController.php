@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\Controller;
 use Illuminate\Support\Facades\Hash;
 
 use App\User;
-use App\Listing;
+use App\Loan;
 use App\Role;
 use Auth;
 use App\Http\Resources\User as UserResource;
@@ -20,20 +20,29 @@ class UsersController extends Controller
      public function createuser(Request $request){
           //Validate before inserting
 
-
        $user = $request ->isMethod('put')? User :: findOrFail
        ($request->$id) : new User;
 
-        $user -> lname = $request->input ('lname');
-        $user -> fname = $request->input ('fname');
+        $user -> title = $request->input ('title');
+        $user -> lastName = $request->input ('lastName');
+        $user -> firstName = $request->input ('firstName');
+        $user -> otherName = $request->input ('otherName');
+        $user -> dateOfBirth = $request->input ('dateOfBirth');
+       
         $user -> phone = $request->input ('phone');
-        $user -> locality = $request->input ('locality');
-        $user -> address = $request->input ('locality');
-        $user -> city = $request->input ('city');
-        $user -> profile_pic = $request->input ('profile_pic');
-        $user -> company = $request->input ('company');
-        $user -> about = $request->input ('about');
         $user -> email = $request->input ('email');
+        $user -> idtype = $request->input ('idtype');
+        $user -> idNumber = $request->input ('idNumber');
+        $user -> idDateOfIssue = $request->input ('idDateOfIssue');
+        $user -> idExpiryDate = $request->input ('idExpiryDate');
+        $user -> businesName = $request->input ('businesName');
+        $user -> businessAddress = $request->input ('businessAddress');
+
+        $user -> yearsOfBusiness = $request->input ('yearsOfBusiness');
+        $user -> totalBusinessCapital = $request->input ('totalBusinessCapital');
+        $user -> areaOfResidence = $request->input ('areaOfResidence');
+        $user -> numberOfDependants = $request->input ('numberOfDependants');
+        $user -> nextOfKin = $request->input ('nextOfKin');
         $user -> password = Hash::make($request->input ('password'));
 
         $isEmailExists = User::where('email', $user['email'])->count();
@@ -82,7 +91,7 @@ class UsersController extends Controller
 
         $user = User ::findOrFail($id);
 
-        //Return artile details
+        //Return user details
         return new UserResource ($user);
          
     }
@@ -135,7 +144,6 @@ class UsersController extends Controller
             return new UserResource ($user);
             
             }
-
 
     /**
      * Remove the specified resource from storage.
