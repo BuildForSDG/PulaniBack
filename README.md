@@ -1,5 +1,6 @@
 A financial data management system for low-level entrepreneurs.
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0b010d5829cf4f8889ac6a34b584c53a)](https://app.codacy.com/gh/BuildForSDG/PulaniBack?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/PulaniBack&utm_campaign=Badge_Grade_Dashboard)
 [![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
 
 ## About
