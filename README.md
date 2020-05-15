@@ -1,36 +1,40 @@
-A one-liner phrase describing this project or app
+A financial data management system for low-level entrepreneurs.
 
 [![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
 
 ## About
 
-What is this project about. Ok to enrich here or the section above it with an image. 
+Owing to minimal job creation, many people living in poverty have resorted to low-level entrepreneurship – selling g/nuts, riding a boda or even selling chapati.
+Others have even “professionalized” their skills – like tailors, mechanics, builders.
 
-Once this repo has been setup on Codacy by the TTL, replace the above badge with the actual one from the Codacy dashboard, and add the code coverage badge as well. This is mandatory
+That said, the key to lift them out of poverty therefore lies within access to finances. If this is unlocked, there can be business growth and a multiplier effect of job creation.
 
-This is a simple php starter repo template for setting up your project. The setup contains
+Despite the numerous efforts to drive financial inclusion, these groups are still out in the “cold”. 
 
-- Composer: For adding third party dependencies
-
-- phpunit: For runnung tests
-
-- php-cs-fixer: For formatting code to match php coding standard
 
 ## Why
 
-Talk about what problem this solves, what SDG(s) and SGD targets it addresses and why these are imoirtant
+Pulani App helps reduce poverty by increasing the credit-worthiness of small business owners to financial institutions.
+
+Why? There is an acute lack of financial information from these groups. Think about it. Any lender needs to know that you can pay back the loan, right?
+
+We believe that with availability of financial data, it would increase access to finance for these groups by 50%.
 
 ## Usage
- How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
+To use Pulani App, simply visit `https://pulani2.herokuapp.com`, register and fill required information.
 
 
 ## Setup
 
-Run `composer install` and `composer dump-autoload` to get started.
-
-`index.php` is the entry to the project and source code should go into the `src` folder.
-
-All tests should be written in the test folder.
+- Clone the repostiry `https://github.com/Nataanthoni/PulaniBack.git` to your local directory.
+ - `cd to your-folder-name`
+ - Make sure your `.env` file is visible.
+ - Check and confirm the APP_KEY inside `.env` file
+ - Create MySQL `database` with `dbname` as in `.env` 
+ - Run `composer upadate`
+ - Migrate database by running `php artisan migrate`
+ - Seed the database with provided data using `php artisan db:seed`
+ - Run `php artisan serve` to run your application on `localhost:8000`
 
 #### Hints
 
@@ -40,7 +44,11 @@ All tests should be written in the test folder.
 
 ## Authors
 
-List the team behind this project. Their names linked to their Github, LinkedIn, or Twitter accounts should siffice. Ok to signify the role they play in the project, including the TTL and mentor
+Pulani BackBack came to life through passionate and highly committed developers;
+- Stephen Katende - TTL of the project team Github: `https://github.com/Nataanthoni`
+- Emmanuel Weele - TTL of the project team Github: `https://github.com/Nataanthoni`
+- Anthony Nata - TTL of the project team Github: `https://github.com/Nataanthoni`
+- Samuel Okellogum - TTL of the project team Github: `https://github.com/Nataanthoni`
 
 ## Contributing
 If this project sounds interesting to you and you'd like to contribute, thank you!
