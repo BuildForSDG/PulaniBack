@@ -49,3 +49,20 @@ Route::post ('/auth/self', [
     'as' => 'me',
      'uses' => 'Api\Auth\AuthController@me'
 ]);
+
+//Load routes
+Route::get ('/loans', [
+    'as' => 'loans.index',
+     'uses' => 'Api\LoansController@index'
+]);
+
+Route::get ('/loan/{id}', [
+    'as' => 'loans.show',
+     'uses' => 'Api\LoansController@show'
+]);
+
+Route::post ('/loan/createloanrequest', [
+    'as' => 'loan.createloanrequest',
+     'uses' => 'Api\LoansController@createLoan'
+]);
+
