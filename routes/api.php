@@ -31,6 +31,7 @@ Route::post ('/user/createuser', [
 
 
 Route::post ('/auth/login', [
+    'middleware' => 'cors',
     'as' => 'login',
      'uses' => 'Api\Auth\AuthController@login'
 ]);
@@ -41,11 +42,13 @@ Route::post ('/auth/logout', [
 ]);
 
 Route::post ('/auth/refresh', [
+    'middleware' => 'cors',
     'as' => 'refresh',
      'uses' => 'Api\Auth\AuthController@refresh'
 ]);
 
 Route::post ('/auth/self', [
+    'middleware' => 'cors',
     'as' => 'me',
      'uses' => 'Api\Auth\AuthController@me'
 ]);
