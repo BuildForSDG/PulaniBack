@@ -62,7 +62,7 @@ class UsersController extends Controller
           'otherName' => 'max:20',
           'dateOfBirth' => 'required|string',
           'gender' => 'required:max:20',
-          'phone' => 'required|max:20',
+          'phone' => 'required|max:20| unique:users',
           'email' => 'required|email|unique:users',
           'idType' => 'required',
           'idNumber' => 'required|max:30',
