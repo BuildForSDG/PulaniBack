@@ -20,6 +20,12 @@ class UpdateUserRequest extends FormRequest
             'email'   => [
                 'required',
             ],
+            'phone'   => [
+                'required',
+            ],
+            'password'   => [
+                'required',
+            ],
 
         ];
     }
