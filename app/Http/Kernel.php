@@ -18,7 +18,12 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
+<<<<<<< HEAD
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,        
+=======
+        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \Fruitcake\Cors\HandleCors::class,
+>>>>>>> c0c1eb672f3136026d627bd0f9eae72fbf1737b1
     ];
 
     /**
@@ -60,8 +65,7 @@ class Kernel extends HttpKernel
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'cors' => \App\Http\Middleware\Cors::class,
+        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,        
     ];
 
     /**
