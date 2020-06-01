@@ -53,6 +53,7 @@ class LaratrustSeeder extends Seeder
             $role->permissions()->sync($permissions);
 
             $this->command->info("Creating '{$key}' user");
+            $phone = strval(mt_rand(702767861, 702789922)); 
 
             // Create default user for each role
             $user = \App\User::create([
@@ -63,7 +64,7 @@ class LaratrustSeeder extends Seeder
                         'dateOfBirth' => '29/06/1991',
                         'gender' => 'Male',
                         'email' => $key.'@pulaniapp.com',
-                        'phone' => '+256702767861',
+                        'phone' => "0"."$phone",
                         'idType' => 'National ID',
                         'idNumber' => '182772893048',
                         'idDateOfIssue' => '12/09/2010',
@@ -89,6 +90,7 @@ class LaratrustSeeder extends Seeder
 
                 foreach ($modules as $module => $value) {
 
+                    $phone = strval(mt_rand(702767861, 702789922)); 
                     // Create default user for each permission set
                     $user = \App\User::create([
                         'title' => 'Mr.',
@@ -98,7 +100,7 @@ class LaratrustSeeder extends Seeder
                         'dateOfBirth' => '29/06/1991',
                         'gender' => 'Male',
                         'email' => $key.'@pulaniapp.com',
-                        'phone' => '+256702767861',
+                        'phone' => "0"."$phone",
                         'idType' => 'National ID',
                         'idNumber' => '182772893048',
                         'idDateOfIssue' => '12/09/2010',
