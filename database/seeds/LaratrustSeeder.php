@@ -53,6 +53,7 @@ class LaratrustSeeder extends Seeder
             $role->permissions()->sync($permissions);
 
             $this->command->info("Creating '{$key}' user");
+             //Autogenerate phonumbers but convert to string to support 070277883 format
             $phone = strval(mt_rand(702767861, 702789922)); 
 
             // Create default user for each role
@@ -90,6 +91,7 @@ class LaratrustSeeder extends Seeder
 
                 foreach ($modules as $module => $value) {
 
+                    //Autogenerate phonumbers but convert to string to support 070277883 format
                     $phone = strval(mt_rand(702767861, 702789922)); 
                     // Create default user for each permission set
                     $user = \App\User::create([
