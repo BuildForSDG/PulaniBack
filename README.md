@@ -49,7 +49,7 @@ Pulani BackBack came to life through passionate and highly committed developers;
 - Stephen Katende - TTL of the project team Github: `https://github.com/Nataanthoni`
 - Emmanuel Weele - TTL of the project team Github: `https://github.com/Nataanthoni`
 - Anthony Nata - TTL of the project team Github: `https://github.com/Nataanthoni`
-- Samuel Okellogum - TTL of the project team Github: `https://github.com/Nataanthoni`
+- Samuel Okellogum - Backend developer of the project team. Github: `https://github.com/SamuelOkellogum`
 
 ## Contributing
 If this project sounds interesting to you and you'd like to contribute, thank you!

@@ -16,10 +16,11 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if (is_numeric($request->get('email'))) {
-            return ['phone' => $request->get('email'), 'password' => $request->get('password')];
-        } elseif (filter_var($request->get('email'), FILTER_VALIDATE_EMAIL)) {
-            return ['email' => $request->get('email'), 'password' => $request->get('password')];
+        $credentials = $request->only('phone', 'password');
+
+        if ($token = $this->guard()->attempt($credentials)) {
+            //return $this->respondWithToken($token);
+            return response()->json(['error' => false, 'token' => $token, 'message' => 'Login Succesfull', 'user' => $this->guard()->user()]);
         }
         //return ['phone' => $request->get('phone'), 'password'=>$request->get('password')];
         return response()->json(['error' => false, 'message' => 'Login Succesfull']);

@@ -36,15 +36,13 @@ class UsersController extends Controller
     public function show($id)
     {
         //Get single User
-
         $user = User::findOrFail($id);
 
         //Return user details
         return new UserResource($user);
-
     }
 
-    //Create new user via API
+    //Create or update user details via API, When the request type is put, it updates else creates
 
     public function createuser(Request $request)
     {
@@ -132,9 +130,8 @@ class UsersController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -179,7 +176,5 @@ class UsersController extends Controller
         if ($user->delete()) {
             return new UserResource($user);
         }
-
     }
-
 }
