@@ -18,8 +18,12 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
+<<<<<<< HEAD
+        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,        
+=======
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \Fruitcake\Cors\HandleCors::class,
+>>>>>>> c0c1eb672f3136026d627bd0f9eae72fbf1737b1
     ];
 
     /**
