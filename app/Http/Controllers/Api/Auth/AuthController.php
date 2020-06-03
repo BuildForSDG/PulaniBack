@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Api\Controller;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
 
 class AuthController extends Controller
 {
@@ -22,8 +22,16 @@ class AuthController extends Controller
             //return $this->respondWithToken($token);
             return response()->json(['error' => false, 'token' => $token, 'message' => 'Login Succesfull', 'user' => $this->guard()->user()]);
         }
-        //Response when error occurs
-        return response()->json(['error' => true, 'message' => 'Incorrect login credentials'], 401);
+        //return ['phone' => $request->get('phone'), 'password'=>$request->get('password')];
+        return response()->json(['error' => false, 'message' => 'Login Succesfull']);
+
+        //$credentials = $request->only('email', 'password');
+        // if ($token = $this->guard()->attempt($credentials)) {
+        //     //return $this->respondWithToken($token);
+        //     return response()->json(['error' => false, 'token' => $token, 'message' => 'Login Succesfull', 'user' => $this->guard()->user()]);
+        // }
+        // //Response when error occurs
+        // return response()->json(['error' => true, 'message' => 'Incorrect login credentials'], 401);
     }
 
     public function me()
