@@ -31,7 +31,6 @@ class Loan extends Model
 
     public function user()
     {
-        return $this -> belongsTo('App\User');
-        //return $this->belongsTo(User::class, 'user_id');
+        return $this -> belongsTo('App\User');        
     }
 }

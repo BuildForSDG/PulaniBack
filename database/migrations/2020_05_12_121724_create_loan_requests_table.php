@@ -20,7 +20,7 @@ class CreateLoanRequestsTable extends Migration
             $table->string('loanperiod');
             $table->string('interestrate');
             $table->string('loanissuer');
-            $table->date('date_form_submitted');
+            $table->string('date_form_submitted');
             $table->timestamps();
         });
     }

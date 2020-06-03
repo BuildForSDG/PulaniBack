@@ -52,7 +52,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function loans()
     {
-        return $this->hasMany(LoanRequest::class, 'user_id', 'id');
+        return $this->hasMany('App\Loan');
     }
 
     //JWT functions

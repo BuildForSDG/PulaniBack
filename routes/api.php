@@ -55,7 +55,7 @@ Route::post ('/auth/self', [
 
 //Load routes
 Route::get ('/loans', [
-    'as' => 'loans.index',
+    //'as' => 'loans.index',
      'uses' => 'Api\LoansController@index'
 ]);
 
