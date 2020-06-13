@@ -1,10 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Controller;
+use Illuminate\Support\Facades\Hash;
 
-class ApiServicesController extends Controller
+use App\User;
+use App\Role;
+use Auth;
+use App\Http\Resources\Product as ProductResource;
+use App\Http\Requests;
+
+
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
