@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 use App\User;
 use App\Loan;
 use App\Role;
-use Auth;
 use App\Http\Resources\User as UserResource;
 use App\Http\Requests;
 

@@ -1,7 +1,6 @@
 A financial data management system for low-level entrepreneurs.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0b010d5829cf4f8889ac6a34b584c53a)](https://app.codacy.com/gh/BuildForSDG/PulaniBack?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/PulaniBack&utm_campaign=Badge_Grade_Dashboard)
-[![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
 
 ## About
 
@@ -27,7 +26,7 @@ To use Pulani App, simply visit `https://pulani2.herokuapp.com`, register and fi
 
 ## Setup
 
-- Clone the repostiry `https://github.com/Nataanthoni/PulaniBack.git` to your local directory.
+- Clone the repostiry `https://github.com/BuildForSDG/Team-270-PulaniBack.git` to your local directory.
  - `cd to your-folder-name`
  - Make sure your `.env` file is visible.
  - Check and confirm the APP_KEY inside `.env` file
@@ -46,8 +45,8 @@ To use Pulani App, simply visit `https://pulani2.herokuapp.com`, register and fi
 ## Authors
 
 Pulani BackBack came to life through passionate and highly committed developers;
-- Stephen Katende - TTL of the project team Github: `https://github.com/Nataanthoni`
-- Emmanuel Weele - TTL of the project team Github: `https://github.com/Nataanthoni`
+- Stephen Katende
+- Emmanuel Weele - Github: `https://github.com/Emmanuel-W`
 - Anthony Nata - TTL of the project team Github: `https://github.com/Nataanthoni`
 - Samuel Okellogum - Backend developer of the project team. Github: `https://github.com/SamuelOkellogum`
 

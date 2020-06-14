@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\Controller;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 use App\Service;
-use Auth;
 use App\Http\Resources\Product as ProductResource;
 use App\Http\Requests;
 use App\Product;
