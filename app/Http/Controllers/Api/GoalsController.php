@@ -30,7 +30,12 @@ class GoalsController extends Controller
         $goals = Goal::latest()->paginate(9);
 
         //Return collection
-        return GoalResource::collection($goals);
+        $result = GoalResource::Collection($goals);
+        if ($result) {
+            return response()->json(['goals' => $result, 'error' => false, 'message' => 'Details succesfully fetched']);
+        } else if (code == 404) {
+            return $result->response()->json(['error' => true, 'message' => 'Details Not found']);
+        } else return response()->json(['error' => true, 'message' => 'Error fetching data']);
     }
 
 
@@ -43,10 +48,12 @@ class GoalsController extends Controller
     public function show($id)
     {
         //Get single Goal
-        $goal = Goal::findOrFail($id);
+        $goal = Goal::find($id);
 
         //Return goal details
-        return new GoalResource($goal);
+        if ($goal) {
+            return new GoalResource($goal);
+        } else return response()->json(['error' => true, 'message' => 'Error fetching goal']);
     }
 
     //Create or update goals details via API, When the request type is put, it updates else creates
@@ -63,6 +70,11 @@ class GoalsController extends Controller
             'unit' => 'required|max:20',
 
         ]);
+        //Validate
+        if ($validate->fails()) {
+            return response()->json(['error' => true, 'errors' => $validate->errors()], 422);
+        }
+
 
         $goal = new Goal;
 
@@ -71,15 +83,10 @@ class GoalsController extends Controller
         $goal->period = $request->input('period');
         $goal->unit = $request->input('unit');
         $goal->date = date("Y-m-d");
-        $goal->dateOfBirth = $request->input('dateOfBirth');
 
         $goal->user_id = Auth::user()->id;
         $goal->save();
 
-        //Validate
-        if ($validate->fails()) {
-            return response()->json(['error' => true, 'errors' => $validate->errors()], 422);
-        }
 
 
         return response()->json(['error' => false, 'message' => 'Goal Succesfully Set']);
