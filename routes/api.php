@@ -66,3 +66,8 @@ Route::post ('/loan/createloanrequest', [
      'uses' => 'Api\LoansController@createLoan'
 ]);
 
+
+
+Route::resource('service', 'Api\ServicesController');
+
+Route::resource('product', 'Api\ProductsController');

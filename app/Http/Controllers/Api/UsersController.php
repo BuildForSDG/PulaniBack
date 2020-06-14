@@ -119,61 +119,6 @@ class UsersController extends Controller
             return response()->json(['error' => false, 'message' => 'User Succesfully Registered']);
         }
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    // public function edit($id)
-    // {
-
-    //     $user = User::findOrFail($id);
-    //     $roles = Role::all();
-    //     //Check right user
-    //     return new UserResource($user);
-    // }
-
-    // /**
-    //  * Update the specified resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function update(Request $request, $id)
-    // {
-
-    //     $this->validate(
-    //         $request,
-    //         [
-    //             'name'        => 'required|string|min:4',
-    //             'phone' => 'required|min:10',
-    //             'email' => 'email|min:10|required',
-    //             'country' => 'max:30',
-    //             'password' => 'required|min:5|max:30',
-    //             'confirm-password' => 'same:password',
-    //         ]
-    //     );
-    //     //Update users
-
-    //     $user = User::findOrFail($id);
-    //     $user->name = $request->input('name');
-    //     $user->phone = $request->input('phone');
-    //     $user->email = $request->input('email');
-    //     $user->country = $request->input('country');
-    //     $user->password = Hash::make($request->input('password'));
-    //     $user->save();
-    //     return new UserResource($user);
-    // }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
 
