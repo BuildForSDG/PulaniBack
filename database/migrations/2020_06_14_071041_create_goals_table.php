@@ -19,6 +19,7 @@ class CreateGoalsTable extends Migration
             $table->integer('amount');
             $table->integer('period');
             $table->string('unit');
+            $table->string('date');
             $table->integer('user_id');
             $table->timestamps();
         });

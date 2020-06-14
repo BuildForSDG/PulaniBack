@@ -71,3 +71,9 @@ Route::post ('/loan/createloanrequest', [
 Route::resource('service', 'Api\ServicesController');
 
 Route::resource('product', 'Api\ProductsController');
+
+Route::get('goal', 'Api\GoalsController@index');
+Route::get('goal/{id}', 'Api\GoalsController@show');
+Route::post('goal', 'Api\GoalsController@create');
+Route::delete('goal/{id}', 'Api\GoalsController@destroy');
+
