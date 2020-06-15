@@ -19,6 +19,11 @@ Route::get ('/users', [
      'uses' => 'Api\UsersController@index'
 ]);
 
+Route::post ('/user/registeruser', [
+    'as' => 'user.registeruser',
+     'uses' => 'Api\RegistersController@create'
+]);
+
 Route::get ('/user/{id}', [
     'as' => 'user.show',
      'uses' => 'Api\UsersController@show'
@@ -28,6 +33,7 @@ Route::post ('/user/createuser', [
     'as' => 'user.createuser',
      'uses' => 'Api\UsersController@createuser'
 ]);
+
 
 
 Route::post ('/auth/login', [
