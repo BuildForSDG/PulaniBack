@@ -28,7 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('idDateOfIssue')->nullable();
             $table->string('idExpiryDate')->nullable();
             $table->string('areaOfResidence')->nullable();
-            $table->string('businessName');
+            $table->string('businessName');            
+            $table->enum('businessType', ['Service', 'Product']);
             $table->string('businessAddress')->nullable();
             $table->string('yearsOfBusiness')->nullable();
             $table->string('totalBusinessCapital')->nullable();

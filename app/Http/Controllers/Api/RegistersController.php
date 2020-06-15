@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Validator;
 
 class RegistersController extends Controller
 {
-    public function validator(Request $request)
-    {
-        return Validator::make($request, [
+    public function create(Request $request)
+    {        
+        $this->validate($request, [
             'title'                => 'max:20',
             'lastName'             => 'required|max:20',
             'firstName'            => 'required|max:20',
@@ -22,8 +22,9 @@ class RegistersController extends Controller
             'gender'               => 'max:20',
             'phone'                => 'required|max:20| unique:users',
             'email'                => 'required|email|unique:users',            
-            'idNumber'             => 'required|max:30',         
-            'businesName'          => 'string',
+            'idNumber'             => 'required|max:30',  
+            'businessType'         => 'string',
+            'businesName'          => 'required|string',
             'businessAddress'      => 'string',
             'yearsOfBusiness'      => 'int',
             'totalBusinessCapital' => 'int',
@@ -32,10 +33,7 @@ class RegistersController extends Controller
             'nextOfKin'            => 'string',
             'password'             => 'required|string|min:8|confirmed',
         ]);
-    }
 
-    public function create(Request $request)
-    {        
         $user                       = $request->isMethod('put') ? User::findOrFail($request->$id) : new User;
         $user->title                = $request->input('title');
         $user->lastName             = $request->input('lastName');
@@ -49,7 +47,8 @@ class RegistersController extends Controller
         $user->idNumber             = $request->input('idNumber');
         $user->idDateOfIssue        = $request->input('idDateOfIssue');
         $user->idExpiryDate         = $request->input('idExpiryDate');
-        $user->businessName          = $request->input('businessName');
+        $user->businessName         = $request->input('businessName');
+        $user->businessType         = $request->input('businessType');
         $user->businessAddress      = $request->input('businessAddress');
         $user->photo                = $request->input('photo');
         $user->yearsOfBusiness      = $request->input('yearsOfBusiness');
@@ -64,12 +63,12 @@ class RegistersController extends Controller
         if ($isEmailExists) {
             return response()->json(['error' => true, 'message' => 'User already Registered']);
         } else if ($isPhoneValid) {
-            return response()->json(['error' => true, 'message' => 'Phone already in use']);
+            return response()->json(['error' => true, 'message' => 'Phone number already in use']);
         } else {
             $user->save();
             $role = Role::select('id')->where('name', 'user')->first();
             $user->attachRole($role); 
-            return response()->json(['error' => false, 'message' => 'User Succesfully Registered']);
+            return response()->json(['error' => false, 'message' => 'You registered successfully']);
         }
     }
 }
