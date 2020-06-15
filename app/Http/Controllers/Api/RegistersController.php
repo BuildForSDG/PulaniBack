@@ -7,35 +7,35 @@ use App\User;
 use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class RegistersController extends Controller
 {
-    public function create(Request $request)
+    public function validator(Request $request)
     {
-        $this->validate($request, [
-
-            'title'                => 'required|max:20',
+        return Validator::make($request, [
+            'title'                => 'max:20',
             'lastName'             => 'required|max:20',
             'firstName'            => 'required|max:20',
             'otherName'            => 'max:20',
-            'dateOfBirth'          => 'required|string',
-            'gender'               => 'required:max:20',
+            'dateOfBirth'          => 'string',
+            'gender'               => 'max:20',
             'phone'                => 'required|max:20| unique:users',
-            'email'                => 'required|email|unique:users',
-            'idType'               => 'required',
-            'idNumber'             => 'required|max:30',
-            'idDateOfIssue'        => 'required',
-            'idExpiryDate'         => 'required',
-            'businesName'          => 'required|string',
-            'businessAddress'      => 'required|string',
-            'yearsOfBusiness'      => 'required|int',
-            'totalBusinessCapital' => 'required|int',
-            'areaOfResidence'      => 'required',
-            'numberOfDependants'   => 'required|int',
-            'nextOfKin'            => 'required|string',
+            'email'                => 'required|email|unique:users',            
+            'idNumber'             => 'required|max:30',         
+            'businesName'          => 'string',
+            'businessAddress'      => 'string',
+            'yearsOfBusiness'      => 'int',
+            'totalBusinessCapital' => 'int',
+            'areaOfResidence'      => 'string',
+            'numberOfDependants'   => 'int',
+            'nextOfKin'            => 'string',
             'password'             => 'required|string|min:8|confirmed',
         ]);
+    }
 
+    public function create(Request $request)
+    {        
         $user                       = $request->isMethod('put') ? User::findOrFail($request->$id) : new User;
         $user->title                = $request->input('title');
         $user->lastName             = $request->input('lastName');
@@ -49,7 +49,7 @@ class RegistersController extends Controller
         $user->idNumber             = $request->input('idNumber');
         $user->idDateOfIssue        = $request->input('idDateOfIssue');
         $user->idExpiryDate         = $request->input('idExpiryDate');
-        $user->businesName          = $request->input('businesName');
+        $user->businessName          = $request->input('businessName');
         $user->businessAddress      = $request->input('businessAddress');
         $user->photo                = $request->input('photo');
         $user->yearsOfBusiness      = $request->input('yearsOfBusiness');
@@ -57,8 +57,8 @@ class RegistersController extends Controller
         $user->areaOfResidence      = $request->input('areaOfResidence');
         $user->numberOfDependants   = $request->input('numberOfDependants');
         $user->nextOfKin            = $request->input('nextOfKin');
-        $user->password = Hash::make($request->input('password'));
-
+        $user->password             = Hash::make($request->input('password'));
+        
         $isEmailExists = User::where('email', $user['email'])->count();
         $isPhoneValid  = User::where('phone', $user['phone'])->count();
         if ($isEmailExists) {
@@ -68,7 +68,7 @@ class RegistersController extends Controller
         } else {
             $user->save();
             $role = Role::select('id')->where('name', 'user')->first();
-            $user->attachRole($role);
+            $user->attachRole($role); 
             return response()->json(['error' => false, 'message' => 'User Succesfully Registered']);
         }
     }
