@@ -29,7 +29,7 @@ class User extends JsonResource
             'idExpiryDate' => $this->idExpiryDate,
             'businesName' => $this->businesName,
             'businessAddress' => $this->businessAddress,
-            'businesName' => $this->businesName,
+            //'businesName' => $this->businesName,
             'phone' => $this->phone,
             'email' => $this->email,
             'yearsOfBusiness' => $this->yearsOfBusiness,

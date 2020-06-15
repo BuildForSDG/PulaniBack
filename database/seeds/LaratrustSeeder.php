@@ -77,7 +77,7 @@ class LaratrustSeeder extends Seeder
                         'yearsOfBusiness' => '2',
                         'totalBusinessCapital' => '4700000',
                         'numberOfDependants' => '3',
-                        'next0fKin' => 'Ambrose Okello',
+                        'nextOfKin' => 'Ambrose Okello',
                         'password' => bcrypt('password'),
             ]);
 
@@ -114,7 +114,7 @@ class LaratrustSeeder extends Seeder
                         'yearsOfBusiness' => '2',
                         'totalBusinessCapital' => '4700000',
                         'numberOfDependants' => '3',
-                        'next0fKin' => 'Ambrose Okello',
+                        'nextOfKin' => 'Ambrose Okello',
                         'password' => bcrypt('password'),
                         'remember_token' => Str::random(10),
                     ]);
